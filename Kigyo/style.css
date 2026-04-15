@@ -1,0 +1,32 @@
+body{
+    text-align: center;
+    font-family: Arial;
+}
+
+#pont{
+    font-size: 20px;
+    margin: 10px;
+}
+
+#palya{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
+    border: 2px solid black;
+}
+
+.cella{
+    width: 20px;
+    height: 20px;
+}
+
+.kigyo{
+    background-color: green;
+}
+
+.alma{
+    background-color: red;
+}
