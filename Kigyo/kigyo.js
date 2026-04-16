@@ -1,11 +1,13 @@
 const palya = document.getElementById("palya");
-const pontszamKiiras = document.getElementById("pontszam");
+const pontszamKiiras = document.getElementById("pont");
 const meret = 20;
 
-let kigyo = [42];
+
+let kigyo = [42, 41, 40];
 let irany = 1;
 let alma = 100;
 let pont = 0;
+let nehezseg = 300;
 
 
 for (let i = 0; i < meret * meret; i++) {
@@ -56,19 +58,22 @@ function mozgas() {
   if (ujFej === alma) {
     pont++;
     pontszamKiiras.textContent = "Pont: " + pont;
-    alma = Math.floor(Math.random() * meret * meret);
+    alma = Math.floor(Math.random() * 401);
   } else {
     kigyo.pop();
   }
+  
 }
+console.log(alma)
 
 function jatekVege() {
-  alert("Vesztettél! Pont: " + pont);
+  window.alert("Vesztettél! Pont: " + pont);
 
-  kigyo = [42];
+  kigyo = [42, 41, 40];
   irany = 1;
   alma = 100;
   pont = 0;
+  nehezseg = 300;
 
   pontszamKiiras.textContent = "Pont: 0";
 }
@@ -80,9 +85,25 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "ArrowRight") irany = 1;
 });
 
-setInterval(function() {
-  mozgas();
-  kirajzol();
-}, 200);
+let idozito;
+function Easy(){
+  nehezseg = 300;
+  frissites();
+}
+function Normal(){
+  nehezseg = 200;
+  frissites();
+}
+function Hard(){
+  nehezseg = 100;
+  frissites();
+}
 
+function frissites(){
+  clearInterval(idozito);
+  idozito = setInterval(function() {
+    mozgas();
+    kirajzol();
+  },nehezseg);
+}
 kirajzol();
