@@ -58,7 +58,7 @@ function mozgas() {
   if (ujFej === alma) {
     pont++;
     pontszamKiiras.textContent = "Pont: " + pont;
-    alma = Math.floor(Math.random() * 401);
+    alma = Math.floor(Math.random() * meret * meret);
   } else {
     kigyo.pop();
   }
@@ -67,7 +67,8 @@ function mozgas() {
 console.log(alma)
 
 function jatekVege() {
-  window.alert("Vesztettél! Pont: " + pont);
+  window.alert("Vesztettél! \n" +
+    "Elért pontok: " + pont);
 
   kigyo = [42, 41, 40];
   irany = 1;
